@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--jQuery library--> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--Latest compiled and minified JavaScript--> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Home Appliances | Furnitures and Designs</title>
+<link rel = "icon" href = "logo.jpg" type = "image/x-icon">
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ }
+    body{
+        font-family: 'Lato', sans-serif;
+        background-image: url(bg.jpg);
+        background-size: 100%;
+    }
+    .overlay{
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: black;
+        overflow: hidden;
+        transition: 1s;
+    }
+    .overlay-content{
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+    }
+    .overlay a{
+        padding: 8px;
+        text-decoration: none;
+        font-size: 36px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    .overlay a:hover, .overlay a:focus{
+        color: #f1f1f1;
+    }
+    .overlay .closebtn{
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 60px;
+    }
+    @media screen and (max-height: 450px){
+        .overlay a {font-size:20px;}
+        .overlay .closebtn{
+            font-size: 40px;
+            top: 15px;
+            right: 35px;
+        }
+    }
+    .main{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 10px 20px;
+        justify-content: space-around;
+        padding-left: 50px;
+        color: darkslateblue;
+        padding-bottom: 100px;
+    }
+    span{
+        padding-right:300px;
+        padding-bottom: 5px;
+        
+    }
+    h1{
+        font-family:'Times New Roman', Times, serif;
+        border-style:outset;
+        border-radius: 30px;
+        border: 5px 5px;
+        font-size: 50px;
+        padding: 10px 15px 10px 15px;
+        background-color:lightcyan;
+    }
+    .row{
+    padding-left: 10px;
+     display: flex;
+     align-items: center;
+     flex-wrap: wrap;
+     justify-content: space-around;
+    }
+
+    a{
+    text-decoration: none;
+    color: #555;
+ }
+ p{
+     color: #555;
+ }
+    .col-2{
+     flex-basis: 50%;
+     min-width: 300px;
+     
+ }
+ .col-2 img{
+     max-width: 550px;
+     padding: 50px 0px;
+     margin-right: 150px;
+ }
+ .col-2 h1{
+     font-size: 50px;
+     line-height: 60px;
+     margin: 25px 100px;
+     
+ }
+ .btn{
+     display: inline-block;
+     background: darkslateblue;
+     color: #fff;
+     padding: 8px 30px;
+     margin: 30px 200px;
+     border-radius: 30px;
+     transition: background 0.5s;
+ }
+ .btn:hover{
+     background: paleturquoise;
+     color: black;
+ }
+ .demo{
+     margin: 0 200px;
+ }
+ .side{
+     padding-left: 65px;
+ }
+.appliance{
+    width: 600px;
+    height: 400px;
+    margin-left: 30px;
+}
+.profile{
+    margin-right: 100px;
+    display: inline-block;
+}
+.search-box{
+    padding-left: 200px;
+}
+input{
+    background-color: white;
+    height: 40px;
+    width: 400px;
+    border: hidden;
+    border-radius: 20px;
+    padding-left: 10px;
+    color: black;
+    box-shadow: teal 4px 4px 4px 4px;
+}
+.caption{
+    display: inline-block;
+    margin-left: 200px;
+    font-size: 45px;
+    color: crimson;
+}
+ .small-container{
+     max-width: 1080px;
+     margin: auto;
+     padding-left: 25px;
+     padding-right: 25px;
+     padding-top: 100px;
+     background-image: url(feature.jpg);
+     background-size: 100%;
+    } 
+    .title{
+     text-align: center;
+     margin: 0 auto 80px;
+     position: relative;
+     line-height: 60px;
+     color: #555;
+    }
+    .categories{
+     margin: 70px 0;
+     background-color: white;
+ }
+ .col-3{
+     flex-basis: 30%;
+     min-width: 250px;
+     margin-bottom: 30px;
+ }
+ .col-3 img{
+     width: 350px;
+     height: 300px;
+ }
+    .col-4{
+     flex-basis:25%;
+     padding: 10px;
+     min-width: 200px;
+     margin-bottom: 50px;
+     transition: transform 0.5s;
+ }
+ .col-4 img{
+     width: 250px;
+     height: 300px;
+ }
+ .title::after{
+     content: "";
+     background: #ff523b;
+     width: 400px;
+     height: 5px;
+     border-radius: 5px;
+     position: absolute;
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+ h4{
+    color:#555;
+    font-weight: normal;
+ }
+ .col-4 p{
+     font-size: 14px;
+ }
+ .rating .fa{
+     color: #ff523b
+ }
+ .col-4:hover{
+     transform: translateY(-5px);
+ }
+ .l-column{
+     background-color: black;
+     color: white;
+     text-align: center;
+     padding-top: 10px;
+     padding-bottom: 10px;
+ }
+
+</style>
+</head>
+<body>
+    <div class="main">
+        <div>
+            <h1>AR APPLIANCES</h1>
+        </div>    
+    <div id="myNav" class="overlay"> 
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="overlay-content">
+          <a href="#">About</a>
+          <a href="#">Services</a>
+          <a href="#">Clients</a>
+          <a href="#">Contact Us</a>
+      </div>
+    </div>
+    <div class="search-box">
+     <input type="text" placeholder="Search Here">
+    </div>
+    
+    <span style="font-size: 30px; cursor: pointer; color:brown;" onclick="openNav()">&#9776;</span>
+
+</div>
+    <script>
+        function openNav(){
+            document.getElementById("myNav").style.width="100%";
+        }
+        function closeNav(){
+            document.getElementById("myNav").style.width="0%";
+        }
+    </script>
+   
+   <!--home-->
+   <div class="row">
+    <div class="col-2">
+   <h1 class="side">Give Your Home A<br>New Style!</h1>
+   <p class="demo"></p>
+   <a href="" class="btn">Explore Now &#8594;</a>
+   </div>
+  <div class="col-2">
+   <img src="home.jpg" class="appliance">
+  </div>
+ </div>
+</div>
+
+
+   <!--category-->
+   <div class="categories">
+    <div class="small-container">
+      <div class="row">
+          <div class="col-3"><img src="wm.jpg"></div>
+          <div class="col-3"><img src="tv.jpg"></div>
+          <div class="col-3"><img src="fridge.jpg"></div>
+      </div>  
+    </div>
+  </div>
+
+  <!--featured-->
+
+  <div class="small-container">
+    <h2 class="title">Featured Products</h2>
+    <div class="row">
+        <div class="col-4">
+         <img src="airdresser.jpg">
+         <h4><br>Air Dresser</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>55,999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="wmachine.jpg">
+         <h4><br>Eco Fabric Care</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>66,999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="ref.jpg">
+         <h4>Family Hub<br>Refrigerators</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>89,999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="oven.jpg">
+         <h4>Masala & Sun Dry<br>Smart Ovens</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>22,999rs.</p>
+        </div>
+     </div>
+ 
+ <h2 class="title">Latest Products</h2>
+   <div class="row">
+        <div class="col-4">
+         <img src="8k.jpg">
+         <h4>2m 16cm (85") QN900A<br>Neo QLED 8K Smart TV</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>1,59,000rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="ac.jpg">
+         <h4>Split 1.5ton<br>
+            Power Consuming AC</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>55999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="sound.jpg">
+         <h4>Soundbar 616W 11.1.1Ch Q950A</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>25999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="tower.jpg">
+         <h4>1500W 2.0Ch Sound<br>Tower T70</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>19999rs.</p>
+        </div>
+     </div>
+    <div class="row">
+        <div class="col-4">
+         <img src="iron.jpg">
+         <h4>Classic Dry Iron</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>12999rs.</p>
+        </div>
+ <div class="col-4">
+         <img src="mixer.jpg">
+         <h4>Mixer Grinder</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>14999s.</p>
+        </div>
+ <div class="col-4">
+         <img src="toast.jpg">
+         <h4>Toaster</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+           <i class="fa fa-star-o"></i>
+          </div>
+         <p>22999s.</p>
+        </div>
+ <div class="col-4">
+         <img src="induc.jpg">
+         <h4>Induction Cookertops</h4>
+          <div class="rating">
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i> 
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star"></i>
+           <i class="fa fa-star-half-o"></i>
+          </div>
+         <p>11999rs.</p>
+        </div>
+     </div>
+     </div>
+     <div class="l-column">
+        COPYRIGHT © 2021 AR APPLIANCES INDIA. ALL RIGHTS RESERVED<br>
+        TERMS AND CONDITIONS OF WEBSITE USE
+     </div>
+</body>
+</html>
